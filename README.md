@@ -14,12 +14,12 @@ Links to your client-side application, deployed client app, and deployed api.
 - View my listings
 
 # Wireframes
-<img src="https://imgur.com/a/Ij5hl" >
-![img](https://i.imgur.com/NvNd0ee.png)
-
+<img src="https://i.imgur.com/NvNd0ee.png" >
+<!-- ![img](https://i.imgur.com/NvNd0ee.png) -->
+ 
 # ERD
 
-![img](https://i.imgur.com/Fpg5eTh.png)
+<!-- ![img](https://i.imgur.com/Fpg5eTh.png) -->
 <img src="https://i.imgur.com/Fpg5eTh.png" >
 
 
