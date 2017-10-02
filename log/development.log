@@ -4928,3 +4928,84 @@ Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 2.1ms)
 Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 3.4ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-02 08:54:28 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (31.2ms)[0m  [1m[33mUPDATE "users" SET "token" = 'f106c43faadfa707339095cf0653c2ef', "updated_at" = '2017-10-02 12:54:29.112495' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (7.27ms)
+Completed 200 OK in 200ms (Views: 17.1ms | ActiveRecord: 73.0ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-02 08:54:54 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Frye Boots Red", "description"=>"Red leather boots in size 9", "price"=>"200.00"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (28.9ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Frye Boots Red"], ["description", "Red leather boots in size 9"], ["price", "200.0"], ["created_at", "2017-10-02 12:54:55.050898"], ["updated_at", "2017-10-02 12:54:55.050898"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (0.38ms)
+Completed 201 Created in 102ms (Views: 5.2ms | ActiveRecord: 50.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-02 08:54:58 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[36mListing Load (6.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.1ms)
+Completed 200 OK in 13ms (Views: 3.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-02 08:55:00 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.3ms)
+Completed 200 OK in 24ms (Views: 9.2ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/listings/15" for 127.0.0.1 at 2017-10-02 08:55:19 -0400
+Processing by ListingsController#update as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Frye boots in Red or Maroonish"}, "id"=>"15"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "listings" SET "name" = $1, "updated_at" = $2 WHERE "listings"."id" = $3[0m  [["name", "Frye boots in Red or Maroonish"], ["updated_at", "2017-10-02 12:55:19.842271"], ["id", 15]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (0.37ms)
+Completed 200 OK in 88ms (Views: 2.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-02 08:55:22 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-02 08:55:22 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.85ms)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.96ms)
+Completed 200 OK in 10ms (Views: 2.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/sign-out/1" for 127.0.0.1 at 2017-10-02 08:55:31 -0400
+Processing by UsersController#signout as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f106c43faadfa707339095cf0653c2ef"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (16.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '48505f5abbae04bc6cc05c653d50a3bd', "updated_at" = '2017-10-02 12:55:31.483884' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 204 No Content in 26ms (ActiveRecord: 17.7ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
