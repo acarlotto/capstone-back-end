@@ -1,12 +1,25 @@
-# Links to your client-side application, deployed client app, and deployed api.
+Links to your client-side application, deployed client app, and deployed api.
+
+# User Stories
+
+- Link to your user stories – who are your users, what do they want, and why?
+- As a user:
+- I will need to be able to create an account
+- Login
+- Logout
+- Change my password
+- Create listings of things I wont to sell
+- Edit my listings
+- Delete my listings
+- View my listings
 
 # Wireframes
-
-![image](https://imgur.com/a/Ij5hl)
+<img src="https://imgur.com/a/Ij5hl" >
 
 # ERD
 
-![image](https://imgur.com/a/2n9kZ)
+<img src="https://imgur.com/a/2n9kZ" >
+
 
 # List of your API routes
 
@@ -35,10 +48,10 @@ examples GET    /examples(.:format)            examples#index
 # Installation instructions for any dependencies
 
 # Technologies Used
-Paperclip Gem
-Stripe
-Ruyb on Rails
-Handlebars
+- Paperclip Gem
+- Stripe
+- Ruyb on Rails
+- Handlebars
 
 # A couple paragraphs about the general approach you took
 Descriptions of any unsolved problems or major hurdles you had to overcome
