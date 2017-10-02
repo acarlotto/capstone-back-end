@@ -16,6 +16,8 @@ Links to your client-side application, deployed client app, and deployed api.
 # Wireframes
 <img src="https://imgur.com/a/Ij5hl" >
 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/Ij5hl"><a href="//imgur.com/Ij5hl"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 # ERD
 
 <img src="https://imgur.com/a/2n9kZ" >
