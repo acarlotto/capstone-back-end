@@ -2,11 +2,11 @@
 
 # Wireframes
 
-![alt text](https://imgur.com/a/Ij5hl)
+![image](https://imgur.com/a/Ij5hl)
 
 # ERD
 
-![alt text](https://imgur.com/a/2n9kZ)
+![image](https://imgur.com/a/2n9kZ)
 
 # List of your API routes
 
