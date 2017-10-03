@@ -16,7 +16,7 @@ Links to your client-side application, deployed client app, and deployed api.
 # Wireframes
 <img src="https://i.imgur.com/NvNd0ee.png" >
 <!-- ![img](https://i.imgur.com/NvNd0ee.png) -->
- 
+
 # ERD
 
 <!-- ![img](https://i.imgur.com/Fpg5eTh.png) -->
@@ -54,6 +54,8 @@ examples GET    /examples(.:format)            examples#index
 - Stripe
 - Ruyb on Rails
 - Handlebars
+- imagemaverick
+- aws-sdk
 
 # A couple paragraphs about the general approach you took
 Descriptions of any unsolved problems or major hurdles you had to overcome
