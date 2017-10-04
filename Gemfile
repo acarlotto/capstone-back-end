@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.3'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 3.0'
 gem 'stripe'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -7205,3 +7205,1075 @@ Processing by ListingsController#index as */*
 Completed 200 OK in 86ms (Views: 36.1ms | ActiveRecord: 1.1ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 13:29:32 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (38.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "ddb9666bd367b52ce463ef274ceaf5b4"], ["LIMIT", 1]]
+  [1m[36mListing Load (33.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (10.84ms)
+Completed 200 OK in 276ms (Views: 32.2ms | ActiveRecord: 72.1ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 14:05:46 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (35.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (45.7ms)[0m  [1m[33mUPDATE "users" SET "token" = '9abe7985e73249dee5d98af7a96cc65e', "updated_at" = '2017-10-03 18:05:46.390379' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (7.88ms)
+Completed 200 OK in 383ms (Views: 10.9ms | ActiveRecord: 81.2ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 14:06:48 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Bag 3", "description"=>"this is my pretty bag with brown leather", "price"=>"1200.00", "imagelink"=>"https://i.imgur.com/FQQKQFY.jpg"}}
+  [1m[36mUser Load (37.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9abe7985e73249dee5d98af7a96cc65e"], ["LIMIT", 1]]
+  [1m[35m (37.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (36.7ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Bag 3"], ["description", "this is my pretty bag with brown leather"], ["price", "1200.0"], ["created_at", "2017-10-03 18:06:48.532196"], ["updated_at", "2017-10-03 18:06:48.532196"], ["user_id", 1], ["imagelink", "https://i.imgur.com/FQQKQFY.jpg"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (3.02ms)
+Completed 201 Created in 550ms (Views: 22.2ms | ActiveRecord: 124.2ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 14:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9abe7985e73249dee5d98af7a96cc65e"], ["LIMIT", 1]]
+  [1m[36mListing Load (38.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (7.58ms)
+Completed 200 OK in 79ms (Views: 23.4ms | ActiveRecord: 51.5ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 14:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9abe7985e73249dee5d98af7a96cc65e"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.32ms)
+Completed 200 OK in 16ms (Views: 5.2ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 14:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9abe7985e73249dee5d98af7a96cc65e"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.22ms)
+Completed 200 OK in 27ms (Views: 11.2ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 14:06:51 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9abe7985e73249dee5d98af7a96cc65e"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (24.23ms)
+Completed 200 OK in 50ms (Views: 32.4ms | ActiveRecord: 11.8ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+  [1m[35m (28.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8632924670931173235)[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPaypalcodeToListings (8)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.2ms)[0m  [1m[35mALTER TABLE "listings" ADD "paypalcode" text[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "8"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8632924670931173235)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 14:44:02 -0400
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (24.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '2354ee6ca50a216dd2227c2e090763ca', "updated_at" = '2017-10-03 18:44:02.788975' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (1.94ms)
+Completed 200 OK in 214ms (Views: 3.3ms | ActiveRecord: 24.7ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 14:44:23 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (12.0ms)[0m  [1m[33mUPDATE "users" SET "token" = '897cbdf5c1b33fe8807b47254c8c8769', "updated_at" = '2017-10-03 18:44:23.364013' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (1.29ms)
+Completed 200 OK in 124ms (Views: 2.0ms | ActiveRecord: 37.4ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 14:44:53 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Update BAG", "description"=>"this is my bag with paypal link", "price"=>"1.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+Unpermitted parameter: :paypalcode
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (27.2ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Update BAG"], ["description", "this is my bag with paypal link"], ["price", "1.0"], ["created_at", "2017-10-03 18:44:53.674831"], ["updated_at", "2017-10-03 18:44:53.674831"], ["user_id", 1], ["imagelink", "https://i.imgur.com/qiuxJlj.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (2.51ms)
+Completed 201 Created in 256ms (Views: 8.8ms | ActiveRecord: 34.9ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 14:47:33 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Update BAG", "description"=>"this is my bag with paypal link", "price"=>"1.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+Unpermitted parameter: :paypalcode
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Update BAG"], ["description", "this is my bag with paypal link"], ["price", "1.0"], ["created_at", "2017-10-03 18:47:34.275922"], ["updated_at", "2017-10-03 18:47:34.275922"], ["user_id", 1], ["imagelink", "https://i.imgur.com/qiuxJlj.jpg"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (33.51ms)
+Completed 500 Internal Server Error in 201ms (ActiveRecord: 13.8ms)
+
+
+  
+NoMethodError (undefined method `paypalcode' for #<Listing:0x007fd099d90e38>):
+  
+app/controllers/listings_controller.rb:25:in `create'
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 14:47:39 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+  [1m[36mListing Load (25.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (6.14ms)
+Completed 200 OK in 44ms (Views: 9.4ms | ActiveRecord: 31.9ms)
+
+
+Started POST "/sign-up" for 127.0.0.1 at 2017-10-03 14:52:50 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"acarloto@cox.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (13.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarloto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "acarloto@cox.net"], ["token", "2ce0bfed768301cced0bde35fc4d03e3"], ["password_digest", "$2a$10$Te8.LXtXqbZDMOXrR1NOKOdNfZ19g8QbYdibU2/LRy8rXrxy2jdD6"], ["created_at", "2017-10-03 18:52:50.498050"], ["updated_at", "2017-10-03 18:52:50.498050"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (12.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "acarloto@cox.net"], ["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (7.27ms)
+Completed 201 Created in 262ms (Views: 21.2ms | ActiveRecord: 39.1ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 14:57:32 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Update BAG", "description"=>"this is my bag with paypal link", "price"=>"1.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'paypalcode' for Listing.):
+  
+app/controllers/listings_controller.rb:21:in `create'
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 14:57:35 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+  [1m[36mListing Load (6.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (5.57ms)
+Completed 200 OK in 33ms (Views: 12.4ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 14:57:35 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+  [1m[36mListing Load (3.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.35ms)
+Completed 200 OK in 10ms (Views: 3.1ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 14:58:09 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Update BAG", "description"=>"this is my bag with paypal link", "price"=>"1.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (22.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "897cbdf5c1b33fe8807b47254c8c8769"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 22.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'paypalcode' for Listing.):
+  
+app/controllers/listings_controller.rb:21:in `create'
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:04:34 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "users" SET "token" = '0bedd5538614f5253c0b3be98f8efdb8', "updated_at" = '2017-10-03 19:04:35.016957' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.49ms)
+Completed 200 OK in 119ms (Views: 5.7ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 15:04:37 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Update BAG", "description"=>"this is my bag with paypal link", "price"=>"1.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"ADHZ6J78HW8S4"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "0bedd5538614f5253c0b3be98f8efdb8"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'paypalcode' for Listing.):
+  
+app/controllers/listings_controller.rb:21:in `create'
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:11:30 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (18.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '6e7821c48a1d387db3796996887b926c', "updated_at" = '2017-10-03 19:11:31.462080' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.01ms)
+Completed 200 OK in 211ms (Views: 20.8ms | ActiveRecord: 65.9ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 15:11:42 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Frye boots in Red or Maroonish", "description"=>"test", "price"=>"2.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"ADHZ6J78HW8S4"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "6e7821c48a1d387db3796996887b926c"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (23.8ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink", "paypalcode") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Frye boots in Red or Maroonish"], ["description", "test"], ["price", "2.0"], ["created_at", "2017-10-03 19:11:42.960205"], ["updated_at", "2017-10-03 19:11:42.960205"], ["user_id", 1], ["imagelink", "https://i.imgur.com/qiuxJlj.jpg"], ["paypalcode", "ADHZ6J78HW8S4"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (0.41ms)
+Completed 201 Created in 151ms (Views: 4.4ms | ActiveRecord: 54.1ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 15:12:57 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"1", "name"=>"Frye boots in Red or Maroonish", "description"=>"test", "price"=>"2.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "6e7821c48a1d387db3796996887b926c"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink", "paypalcode") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Frye boots in Red or Maroonish"], ["description", "test"], ["price", "2.0"], ["created_at", "2017-10-03 19:12:57.776558"], ["updated_at", "2017-10-03 19:12:57.776558"], ["user_id", 1], ["imagelink", "https://i.imgur.com/qiuxJlj.jpg"], ["paypalcode", "<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (2.15ms)
+Completed 201 Created in 102ms (Views: 6.6ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:20:53 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (3.8ms)[0m  [1m[33mUPDATE "users" SET "token" = '99c0846066b463cc6e76d71c8eefc4e4', "updated_at" = '2017-10-03 19:20:53.558473' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.36ms)
+Completed 200 OK in 113ms (Views: 5.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 15:20:55 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "99c0846066b463cc6e76d71c8eefc4e4"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (14.39ms)
+Completed 200 OK in 24ms (Views: 19.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:30:27 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (32.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '0e0ee2011b10ea72b06b71a1046153ec', "updated_at" = '2017-10-03 19:30:27.747045' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (3.77ms)
+Completed 200 OK in 139ms (Views: 7.4ms | ActiveRecord: 33.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 15:30:44 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "0e0ee2011b10ea72b06b71a1046153ec"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (6.49ms)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:37:06 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "token" = '4afb74f3101d0abec533842d7de937a2', "updated_at" = '2017-10-03 19:37:06.755825' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.25ms)
+Completed 200 OK in 111ms (Views: 5.5ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 15:37:59 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (6.6ms)[0m  [1m[33mUPDATE "users" SET "token" = '695f9929497ca8d2b1337bc0e6324f54', "updated_at" = '2017-10-03 19:37:59.608475' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.59ms)
+Completed 200 OK in 87ms (Views: 1.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 15:38:03 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.59ms)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:38:38 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (2.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.92ms)
+Completed 200 OK in 36ms (Views: 13.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:38:38 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.15ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/listings/7" for 127.0.0.1 at 2017-10-03 15:40:11 -0400
+Processing by ListingsController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.6ms)[0m  [1m[31mDELETE FROM "listings" WHERE "listings"."id" = $1[0m  [["id", 7]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 35ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:13 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.98ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:13 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.02ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:13 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.81ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/listings/6" for 127.0.0.1 at 2017-10-03 15:40:15 -0400
+Processing by ListingsController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "listings" WHERE "listings"."id" = $1[0m  [["id", 6]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 11ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:17 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.1ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:17 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.75ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:17 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (3.48ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 15:40:17 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "695f9929497ca8d2b1337bc0e6324f54"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.27ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 16:06:46 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"tcarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tcarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (36.2ms)[0m  [1m[33mUPDATE "users" SET "token" = '9c4081c9258f6923df29ad03ac94be31', "updated_at" = '2017-10-03 20:06:46.516454' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (4.73ms)
+Completed 200 OK in 248ms (Views: 11.7ms | ActiveRecord: 45.4ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 16:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (19.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (7.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (10.86ms)
+Completed 200 OK in 52ms (Views: 14.7ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 16:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (6.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (12.01ms)
+Completed 200 OK in 31ms (Views: 18.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 16:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.62ms)
+Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 16:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.13ms)
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/listings/1" for 127.0.0.1 at 2017-10-03 16:06:49 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 1)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (3.42ms)
+Completed 200 OK in 18ms (Views: 8.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:06:52 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (12.65ms)
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:08:22 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "9c4081c9258f6923df29ad03ac94be31"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (30.71ms)
+Completed 200 OK in 79ms (Views: 53.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:12:05 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:12:09 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:12:49 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:13:33 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:13:57 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:15:53 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-up/" for 127.0.0.1 at 2017-10-03 16:22:46 -0400
+Processing by UsersController#signup as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "submit"=>"register"}
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (35.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (30.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "token", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "acarlotto@cox.net"], ["token", "0c3fed491f5d5c316d22d5b87858c88e"], ["password_digest", "$2a$10$18LTIAjDbzkNk02911zBSel7gatRJTNBQLa3qfFaqQNSZXmPIACC6"], ["created_at", "2017-10-03 20:22:47.119680"], ["updated_at", "2017-10-03 20:22:47.119680"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Exists (19.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "acarlotto@cox.net"], ["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Json (5.65ms)
+Completed 201 Created in 442ms (Views: 14.2ms | ActiveRecord: 94.5ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 16:22:54 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (24.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '7c31ea7cbc85be97cbcc2328ce2fd635', "updated_at" = '2017-10-03 20:22:54.965491' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (5.35ms)
+Completed 200 OK in 113ms (Views: 6.0ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:23:00 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:23:00 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "7c31ea7cbc85be97cbcc2328ce2fd635"], ["LIMIT", 1]]
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "7c31ea7cbc85be97cbcc2328ce2fd635"], ["LIMIT", 1]]
+  [1m[36mListing Load (1.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.52ms)
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 3.7ms)
+
+
+  [1m[36mListing Load (2.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.4ms)
+Completed 200 OK in 17ms (Views: 2.2ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:23:01 -0400
+Processing by ListingsController#index as */*
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 16:23:26 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (25.0ms)[0m  [1m[33mUPDATE "users" SET "token" = 'f903e8b881c21a98fd112dbf33acdac7', "updated_at" = '2017-10-03 20:23:26.259767' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (2.21ms)
+Completed 200 OK in 157ms (Views: 5.7ms | ActiveRecord: 33.6ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:23:29 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.23ms)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:23:30 -0400
+Processing by ListingsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mListing Load (13.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (11.35ms)
+Completed 200 OK in 36ms (Views: 14.8ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 16:23:56 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"3", "name"=>"bag 1", "description"=>"this is my red bag", "price"=>"2.00", "imagelink"=>"https://i.imgur.com/gYaK6o5.jpg", "paypalcode"=>""}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (36.1ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink", "paypalcode") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "bag 1"], ["description", "this is my red bag"], ["price", "2.0"], ["created_at", "2017-10-03 20:23:56.697506"], ["updated_at", "2017-10-03 20:23:56.697506"], ["user_id", 3], ["imagelink", "https://i.imgur.com/gYaK6o5.jpg"], ["paypalcode", ""]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (0.38ms)
+Completed 201 Created in 93ms (Views: 3.5ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:23:58 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:23:58 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mListing Load (5.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.62ms)
+Completed 200 OK in 25ms (Views: 4.1ms | ActiveRecord: 13.0ms)
+
+
+  [1m[36mListing Load (4.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.64ms)
+Completed 200 OK in 35ms (Views: 6.0ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:33:58 -0400
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:33:58 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mListing Load (5.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.16ms)
+Completed 200 OK in 233ms (Views: 38.0ms | ActiveRecord: 122.4ms)
+
+
+Processing by ListingsController#show as */*
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:33:58 -0400
+  Parameters: {"id"=>"3"}
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f903e8b881c21a98fd112dbf33acdac7"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.84ms)
+Completed 200 OK in 123ms (Views: 26.9ms | ActiveRecord: 6.4ms)
+
+
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.56ms)
+Completed 200 OK in 126ms (Views: 1.9ms | ActiveRecord: 110.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:34:00 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.28ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:34:43 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (3.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (11.47ms)
+Completed 200 OK in 39ms (Views: 30.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:36:05 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.13ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 16:36:39 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"ac", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ac"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 19ms (ActiveRecord: 6.2ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 16:36:51 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (18.5ms)[0m  [1m[33mUPDATE "users" SET "token" = 'cce031871548b7bace0a76d1aa6da5ad', "updated_at" = '2017-10-03 20:36:51.136472' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (0.87ms)
+Completed 200 OK in 110ms (Views: 1.9ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:36:53 -0400
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:36:53 -0400
+Processing by ListingsController#show as */*
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  Parameters: {"id"=>"3"}
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:36:53 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.36ms)
+Completed 200 OK in 22ms (Views: 4.0ms | ActiveRecord: 14.0ms)
+
+
+  [1m[36mUser Load (19.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.94ms)
+Completed 200 OK in 26ms (Views: 2.5ms | ActiveRecord: 20.2ms)
+
+
+  [1m[36mUser Load (20.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (1.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.15ms)
+Completed 200 OK in 193ms (Views: 7.3ms | ActiveRecord: 92.1ms)
+
+
+Started POST "/listings" for 127.0.0.1 at 2017-10-03 16:37:24 -0400
+Processing by ListingsController#create as */*
+  Parameters: {"listing"=>{"user_id"=>"3", "name"=>"BAGS Coach", "description"=>"this is my big bag", "price"=>"5.00", "imagelink"=>"https://i.imgur.com/qiuxJlj.jpg", "paypalcode"=>"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at", "user_id", "imagelink", "paypalcode") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "BAGS Coach"], ["description", "this is my big bag"], ["price", "5.0"], ["created_at", "2017-10-03 20:37:24.729554"], ["updated_at", "2017-10-03 20:37:24.729554"], ["user_id", 3], ["imagelink", "https://i.imgur.com/qiuxJlj.jpg"], ["paypalcode", "<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" target=\"_top\"> <input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"> <input type=\"hidden\" name=\"hosted_button_id\" value=\"ADHZ6J78HW8S4\"> <input type=\"image\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\"> <img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\"> </form>"]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ListingSerializer with ActiveModelSerializers::Adapter::Json (0.5ms)
+Completed 201 Created in 50ms (Views: 1.7ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:37:28 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.02ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:37:36 -0400
+Processing by ListingsController#show as */*
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:37:36 -0400
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:37:36 -0400
+  Parameters: {"id"=>"3"}
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 16:37:36 -0400
+Processing by ListingsController#show as */*
+Processing by ListingsController#show as */*
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  Parameters: {"id"=>"3"}
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.75ms)
+Completed 200 OK in 15ms (Views: 4.5ms | ActiveRecord: 2.3ms)
+
+
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.27ms)
+Completed 200 OK in 18ms (Views: 6.0ms | ActiveRecord: 9.3ms)
+
+
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.24ms)
+Completed 200 OK in 24ms (Views: 3.5ms | ActiveRecord: 15.1ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "cce031871548b7bace0a76d1aa6da5ad"], ["LIMIT", 1]]
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.94ms)
+Completed 200 OK in 77ms (Views: 4.2ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:40:20 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (5.39ms)
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 16:41:57 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (3.31ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 17:57:37 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (8.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (13.58ms)
+Completed 200 OK in 101ms (Views: 84.1ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:01:56 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (17.02ms)
+Completed 200 OK in 48ms (Views: 40.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:01:56 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (2.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (6.18ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:03:30 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (8.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (27.11ms)
+Completed 200 OK in 65ms (Views: 49.8ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:07:11 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (11.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (33.79ms)
+Completed 200 OK in 106ms (Views: 77.8ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:08:38 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (18.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (54.46ms)
+Completed 200 OK in 154ms (Views: 129.4ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 18:15:02 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (62.42ms)
+Completed 200 OK in 200ms (Views: 178.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:08:04 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (43.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (56.08ms)
+Completed 200 OK in 298ms (Views: 220.9ms | ActiveRecord: 43.7ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/andreacarlotto/wdi/final-project/marketplace-back-end-capstone/config/initializers/new_framework_defaults.rb:18)
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:11:41 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.44ms)
+Completed 200 OK in 88ms (Views: 47.6ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:28:16 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (15.9ms)
+Completed 200 OK in 132ms (Views: 108.1ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:28:37 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (3.83ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:30:07 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (15.67ms)
+Completed 200 OK in 42ms (Views: 33.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-03 20:30:49 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (33.2ms)[0m  [1m[33mUPDATE "users" SET "token" = 'd914663e4baca1c34f0d49c51ddec3e4', "updated_at" = '2017-10-04 00:30:49.648952' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (5.36ms)
+Completed 200 OK in 228ms (Views: 6.1ms | ActiveRecord: 64.0ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 20:30:51 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-03 20:30:51 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "d914663e4baca1c34f0d49c51ddec3e4"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "d914663e4baca1c34f0d49c51ddec3e4"], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (1.09ms)
+Completed 200 OK in 12ms (Views: 2.6ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mListing Load (7.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (0.91ms)
+Completed 200 OK in 18ms (Views: 2.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:30:59 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (2.48ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:33:06 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (2.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (15.79ms)
+Completed 200 OK in 65ms (Views: 36.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:34:34 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (22.91ms)
+Completed 200 OK in 75ms (Views: 65.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:35:55 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (32.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (11.95ms)
+Completed 200 OK in 110ms (Views: 68.0ms | ActiveRecord: 32.2ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:36:12 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (6.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (10.42ms)
+Completed 200 OK in 57ms (Views: 47.3ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:40:20 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (8.7ms)
+Completed 200 OK in 39ms (Views: 28.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:40:24 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (3.36ms)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:40:28 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (5.45ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:41:32 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (2.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (8.82ms)
+Completed 200 OK in 39ms (Views: 31.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:42:24 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.24ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:43:13 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (5.73ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:46:03 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (1.0ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (12.45ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:47:01 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (7.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (18.74ms)
+Completed 200 OK in 41ms (Views: 31.3ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:47:41 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (4.45ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-03 20:51:49 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (5.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (13.67ms)
+Completed 200 OK in 76ms (Views: 53.7ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:32:22 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (99.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (110.94ms)
+Completed 200 OK in 1134ms (Views: 1027.4ms | ActiveRecord: 99.6ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:35:08 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (31.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (31.06ms)
+Completed 200 OK in 177ms (Views: 136.0ms | ActiveRecord: 31.1ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:35:32 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (2.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (38.35ms)
+Completed 200 OK in 147ms (Views: 108.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:35:33 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (18.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (80.23ms)
+Completed 200 OK in 171ms (Views: 152.2ms | ActiveRecord: 18.5ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-04 08:35:45 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (34.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (49.6ms)[0m  [1m[33mUPDATE "users" SET "token" = 'f6870d65e9d17d9f80e30285795df3ee', "updated_at" = '2017-10-04 12:35:45.751371' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (6.41ms)
+Completed 200 OK in 248ms (Views: 14.5ms | ActiveRecord: 83.7ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-04 08:35:50 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "f6870d65e9d17d9f80e30285795df3ee"], ["LIMIT", 1]]
+  [1m[36mListing Load (23.2ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (9.32ms)
+Completed 200 OK in 53ms (Views: 14.0ms | ActiveRecord: 29.4ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:36:30 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (19.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (37.88ms)
+Completed 200 OK in 150ms (Views: 81.6ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/listings/" for 127.0.0.1 at 2017-10-04 08:36:44 -0400
+Processing by ListingsController#index as */*
+  [1m[36mListing Load (7.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (50.38ms)
+Completed 200 OK in 129ms (Views: 113.9ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/sign-in/" for 127.0.0.1 at 2017-10-04 08:37:38 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"acarlotto@cox.net", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "acarlotto@cox.net"], ["LIMIT", 1]]
+  [1m[35mSQL (18.3ms)[0m  [1m[33mUPDATE "users" SET "token" = '1d50fb7920f57589cced4c69d8616459', "updated_at" = '2017-10-04 12:37:39.036030' WHERE "users"."id" = $1[0m  [["id", 3]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModelSerializers::Adapter::Json (4.58ms)
+Completed 200 OK in 223ms (Views: 7.9ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/listings/3" for 127.0.0.1 at 2017-10-04 08:37:42 -0400
+Processing by ListingsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "1d50fb7920f57589cced4c69d8616459"], ["LIMIT", 1]]
+  [1m[36mListing Load (6.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (user_id = 3)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Json (25.31ms)
+Completed 200 OK in 74ms (Views: 42.4ms | ActiveRecord: 7.6ms)
+
+
