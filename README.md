@@ -1,4 +1,8 @@
-Links to your client-side application, deployed client app, and deployed api.
+
+- github client - https://github.com/acarlotto/capstone-front-end
+- github deployed - https://acarlotto.github.io/capstone-front-end/
+- github backend - https://github.com/acarlotto/capstone-back-end
+- github Api - https://mysterious-garden-13580.herokuapp.com/
 
 # User Stories
 
@@ -49,18 +53,16 @@ examples GET    /examples(.:format)            examples#index
 
 # Installation instructions for any dependencies
 
+I did not use any dependencies
+
 # Technologies Used
-- Paperclip Gem
-- Stripe
 - Ruyb on Rails
-- Handlebars
-- imagemaverick
-- aws-sdk
+- JQuery
+- Ajax
 
-# A couple paragraphs about the general approach you took
-Descriptions of any unsolved problems or major hurdles you had to overcome
+# General Approach
 
-# Both client and api repositories must be pinned on your GitHub page
+I started by creating my database tables using scaffolding and moved on from there. 
 
 # A Rails Template by:
 Rails[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
